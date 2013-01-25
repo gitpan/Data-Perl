@@ -5,7 +5,6 @@ META.json
 META.yml
 Makefile.PL
 README
-README.md
 README.mkdn
 dist.ini
 lib/Data/Perl.pm

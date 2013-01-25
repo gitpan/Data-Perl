@@ -1,6 +1,6 @@
 package Data::Perl::Collection::Hash;
 {
-  $Data::Perl::Collection::Hash::VERSION = '0.001000';
+  $Data::Perl::Collection::Hash::VERSION = '0.001001';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in hash structure.
@@ -66,7 +66,7 @@ Data::Perl::Collection::Hash - Wrapping class for Perl's built in hash structure
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
@@ -207,11 +207,11 @@ with the hash iterator. C<keys> or C<kv> are much safer.
 
 =head1 AUTHOR
 
-Matthew Phillips <mattp(at)cpan.org>
+Matthew Phillips <mattp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Matthew Phillips <mattp(at)cpan.org>.
+This software is copyright (c) 2013 by Matthew Phillips <mattp@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

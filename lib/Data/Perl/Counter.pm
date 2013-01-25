@@ -1,6 +1,6 @@
 package Data::Perl::Counter;
 {
-  $Data::Perl::Counter::VERSION = '0.001000';
+  $Data::Perl::Counter::VERSION = '0.001001';
 }
 
 # ABSTRACT: Wrapping class for a simple numeric counter.
@@ -26,7 +26,7 @@ Data::Perl::Counter - Wrapping class for a simple numeric counter.
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
@@ -94,11 +94,11 @@ value.
 
 =head1 AUTHOR
 
-Matthew Phillips <mattp(at)cpan.org>
+Matthew Phillips <mattp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Matthew Phillips <mattp(at)cpan.org>.
+This software is copyright (c) 2013 by Matthew Phillips <mattp@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

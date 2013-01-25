@@ -1,6 +1,6 @@
 package Data::Perl::Code;
 {
-  $Data::Perl::Code::VERSION = '0.001000';
+  $Data::Perl::Code::VERSION = '0.001001';
 }
 
 # ABSTRACT: Wrapping class for Perl coderefs.
@@ -25,7 +25,7 @@ Data::Perl::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
@@ -72,11 +72,11 @@ resolved.>
 
 =head1 AUTHOR
 
-Matthew Phillips <mattp(at)cpan.org>
+Matthew Phillips <mattp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Matthew Phillips <mattp(at)cpan.org>.
+This software is copyright (c) 2013 by Matthew Phillips <mattp@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

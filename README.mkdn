@@ -4,7 +4,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 # VERSION
 
-version 0.001000
+version 0.001001
 
 # SYNOPSIS
 
@@ -99,11 +99,11 @@ much of this work is based.
 
 # AUTHOR
 
-Matthew Phillips <mattp(at)cpan.org>
+Matthew Phillips <mattp@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Matthew Phillips <mattp(at)cpan.org>.
+This software is copyright (c) 2013 by Matthew Phillips <mattp@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

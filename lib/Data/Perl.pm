@@ -1,6 +1,6 @@
 package Data::Perl;
 {
-  $Data::Perl::VERSION = '0.001000';
+  $Data::Perl::VERSION = '0.001001';
 }
 
 # ABSTRACT: Base classes wrapping fundamental Perl data types.
@@ -47,7 +47,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
@@ -160,11 +160,11 @@ much of this work is based.
 
 =head1 AUTHOR
 
-Matthew Phillips <mattp(at)cpan.org>
+Matthew Phillips <mattp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Matthew Phillips <mattp(at)cpan.org>.
+This software is copyright (c) 2013 by Matthew Phillips <mattp@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
