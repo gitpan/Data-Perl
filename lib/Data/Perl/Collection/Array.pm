@@ -1,6 +1,6 @@
 package Data::Perl::Collection::Array;
 {
-  $Data::Perl::Collection::Array::VERSION = '0.001001';
+  $Data::Perl::Collection::Array::VERSION = '0.001002';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in array structure.
@@ -99,7 +99,7 @@ Data::Perl::Collection::Array - Wrapping class for Perl's built in array structu
 
 =head1 VERSION
 
-version 0.001001
+version 0.001002
 
 =head1 SYNOPSIS
 

@@ -2,7 +2,7 @@ NAME
     Data::Perl - Base classes wrapping fundamental Perl data types.
 
 VERSION
-    version 0.001001
+    version 0.001002
 
 SYNOPSIS
       use Data::Perl;
@@ -40,7 +40,7 @@ DESCRIPTION
     that exist in Perl. These classes and methods as they exist today are an
     attempt to mirror functionality provided by Moose's Native Traits. One
     important thing to note is all classes currently do no validation on
-    constructor input. b<This may change in the future>.
+    constructor input. This may change in the future.
 
     Data::Perl is a container class for the following classes:
 

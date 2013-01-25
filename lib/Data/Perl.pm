@@ -1,6 +1,6 @@
 package Data::Perl;
 {
-  $Data::Perl::VERSION = '0.001001';
+  $Data::Perl::VERSION = '0.001002';
 }
 
 # ABSTRACT: Base classes wrapping fundamental Perl data types.
@@ -47,7 +47,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 =head1 VERSION
 
-version 0.001001
+version 0.001002
 
 =head1 SYNOPSIS
 
@@ -86,7 +86,7 @@ version 0.001001
 Data::Perl is a collection of classes that wrap fundamental data types that
 exist in Perl. These classes and methods as they exist today are an attempt to
 mirror functionality provided by Moose's Native Traits. One important thing to
-note is all classes currently do no validation on constructor input. b<This may
+note is all classes currently do no validation on constructor input. B<This may
 change in the future>.
 
 Data::Perl is a container class for the following classes:
