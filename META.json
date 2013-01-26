@@ -28,6 +28,9 @@
       },
       "runtime" : {
          "requires" : {
+            "List::MoreUtils" : "0",
+            "List::Util" : "0",
+            "Scalar::Util" : "0",
             "strictures" : "0"
          }
       }
@@ -40,6 +43,6 @@
          "web" : "https://github.com/mattp-/Data-Perl"
       }
    },
-   "version" : "0.001002"
+   "version" : "0.001003"
 }
 

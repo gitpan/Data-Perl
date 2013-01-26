@@ -13,7 +13,10 @@ meta-spec:
   version: 1.4
 name: Data-Perl
 requires:
+  List::MoreUtils: 0
+  List::Util: 0
+  Scalar::Util: 0
   strictures: 0
 resources:
   repository: git://github.com/mattp-/Data-Perl.git
-version: 0.001002
+version: 0.001003

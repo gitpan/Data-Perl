@@ -20,9 +20,12 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Data::Perl",
   "PREREQ_PM" => {
+    "List::MoreUtils" => 0,
+    "List::Util" => 0,
+    "Scalar::Util" => 0,
     "strictures" => 0
   },
-  "VERSION" => "0.001002",
+  "VERSION" => "0.001003",
   "test" => {
     "TESTS" => "t/*.t t/collection/*.t"
   }

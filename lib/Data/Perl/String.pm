@@ -1,6 +1,6 @@
 package Data::Perl::String;
 {
-  $Data::Perl::String::VERSION = '0.001002';
+  $Data::Perl::String::VERSION = '0.001003';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar strings.
@@ -40,7 +40,6 @@ sub substr { ... }
 
 1;
 
-
 =pod
 
 =head1 NAME
@@ -49,7 +48,7 @@ Data::Perl::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.001002
+version 0.001003
 
 =head1 SYNOPSIS
 
@@ -163,7 +162,6 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 
 __END__
 ==pod

@@ -1,6 +1,6 @@
 package Data::Perl::Collection::Array;
 {
-  $Data::Perl::Collection::Array::VERSION = '0.001002';
+  $Data::Perl::Collection::Array::VERSION = '0.001003';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in array structure.
@@ -89,8 +89,6 @@ sub shallow_clone { blessed($_[0]) ? bless([@{$_[0]}], ref $_[0]) : [@{$_[0]}] }
 
 1;
 
-
-
 =pod
 
 =head1 NAME
@@ -99,7 +97,7 @@ Data::Perl::Collection::Array - Wrapping class for Perl's built in array structu
 
 =head1 VERSION
 
-version 0.001002
+version 0.001003
 
 =head1 SYNOPSIS
 
@@ -398,7 +396,6 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 
 __END__
 ==pod
