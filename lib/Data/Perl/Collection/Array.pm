@@ -1,67 +1,41 @@
 package Data::Perl::Collection::Array;
 {
-  $Data::Perl::Collection::Array::VERSION = '0.001003';
+  $Data::Perl::Collection::Array::VERSION = '0.001004';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in array structure.
+
+use strictures 1;
 
 use List::Util;
 use List::MoreUtils;
 use Scalar::Util qw/blessed/;
 
-use strictures 1;
+sub new { my $cl = CORE::shift; bless([ @_ ], $cl) }
 
-sub new { my $cl = shift; bless([ @_ ], $cl) }
+sub count { CORE::scalar @{$_[0]} }
 
-sub count { scalar @{$_[0]} }
-
-sub is_empty { scalar @{$_[0]} ? 0 : 1 }
+sub is_empty { CORE::scalar @{$_[0]} ? 0 : 1 }
 
 sub elements { @{$_[0]} }
 
 sub get { $_[0]->[ $_[1] ] }
 
-sub pop { pop @{$_[0]} }
+sub pop { CORE::pop @{$_[0]} }
 
-sub push { push @{$_[0]}, @_[1..$#_] }
+sub push { CORE::push @{$_[0]}, @_[1..$#_] }
 
-sub shift { shift @{$_[0]} }
+sub shift { CORE::shift @{$_[0]} }
 
-sub unshift { unshift @{$_[0]}, @_[1..$#_] }
-
-sub splice { splice @{$_[0]}, $_[1], $_[2], @_[3..$#_] }
+sub unshift { CORE::unshift @{$_[0]}, @_[1..$#_] }
 
 sub first { &List::Util::first($_[1], @{$_[0]}) }
 
 sub first_index { &List::MoreUtils::first_index($_[1], @{$_[0]}) }
 
-sub grep {
-  my ($self, $cb) = @_;
-  grep { $_->$cb } @$self;
-}
-
-sub map {
-  my ($self, $cb) = @_;
-  map { $_->$cb } @$self;
-}
-
 sub reduce { List::Util::reduce { $_[1]->($a, $b) } @{$_[0]} }
 
-sub sort { $_[1] ? sort { $_[1]->($a, $b) } @{$_[0]} : sort @{$_[0]} }
-
-sub sort_in_place { @{$_[0]} = ($_[1] ? sort { $_[1]->($a, $b) } @{$_[0]} : sort @{$_[0]}) }
-
-sub shuffle { &List::Util::shuffle(@{$_[0]}) }
-
-sub uniq { &List::MoreUtils::uniq(@{$_[0]}) }
-
-sub join { join $_[1], @{$_[0]} }
-
 sub set { $_[0]->[ $_[1] ] = $_[2] }
-
-sub delete { CORE::splice @{$_[0]}, $_[1], 1 }
-
-sub insert { CORE::splice @{$_[0]}, $_[1], 0, $_[2] }
 
 sub accessor {
   if (@_ == 2) {
@@ -87,7 +61,116 @@ sub natatime {
 
 sub shallow_clone { blessed($_[0]) ? bless([@{$_[0]}], ref $_[0]) : [@{$_[0]}] }
 
+# Data::Collection methods that return a Data::Perl::Collection::Array object
+#sub members {
+#  my ($self) = @_;
+#  qw/map grep member_count sort reverse print any all one none join/;
+#}
+
+sub map {
+  my ($self, $cb) = @_;
+
+  ref($self)->new(CORE::map { $cb->($_) } $self->elements);
+}
+
+sub grep {
+  my ($self, $cb) = @_;
+
+  ref($self)->new(CORE::grep { $_->$cb } $self->elements);
+}
+
+sub sort {
+  my ($self) = @_;
+
+  ref($self)->new($_[1] ? CORE::sort { $_[1]->($a, $b) } $self->elements : CORE::sort $self->elements);
+}
+
+sub reverse {
+  my ($self) = @_;
+
+  ref($self)->new(CORE::reverse $self->elements);
+}
+
+sub sort_in_place {
+  my ($self) = @_;
+
+  @{$_[0]} = ($_[1] ? sort { $_[1]->($a, $b) } @{$_[0]} : sort @{$_[0]});
+
+  $self;
+}
+
+sub splice {
+  my @splice = CORE::splice @{$_[0]}, $_[1], $_[2], @_[3..$#_];
+
+  if (wantarray) {
+    ref($_[0])->new(@splice);
+  }
+  else {
+    $splice[-1];
+  }
+}
+
+sub shuffle {
+  my ($self) = @_;
+
+  ref($self)->new(List::Util::shuffle($self->elements));
+}
+
+sub uniq {
+  my ($self) = @_;
+
+  ref($self)->new(List::MoreUtils::uniq($self->elements));
+}
+
+sub delete {
+  my ($self, $idx) = @_;
+
+  $self->splice($idx, 1);
+}
+
+sub insert {
+  my ($self, $idx, $el) = @_;
+
+  $self->splice($idx, 0, $el);
+}
+
+sub flatten {
+    @{$_[0]}
+}
+
+sub flatten_deep {
+  my ($self, $depth) = @_;
+
+  _flatten_deep($self->elements, $depth);
+}
+
+sub _flatten_deep {
+  my @array = @_;
+  my $depth = CORE::pop @array;
+  --$depth if (defined($depth));
+
+  my @elements = CORE::map {
+      (ref eq 'ARRAY')
+          ? (defined($depth) && $depth == -1) ? $_ : _flatten_deep( @$_, $depth )
+          : $_
+  } @array;
+}
+
+sub join {
+  my ($self, $with) = @_;
+
+  CORE::join((defined $with ? $with : ','), $self->elements);
+}
+
+sub print {
+  my ($self, $fh, $arg) = @_;
+
+  print { $fh ||= *STDOUT } $self->join($arg);
+}
+
 1;
+
+
 
 =pod
 
@@ -97,7 +180,7 @@ Data::Perl::Collection::Array - Wrapping class for Perl's built in array structu
 
 =head1 VERSION
 
-version 0.001003
+version 0.001004
 
 =head1 SYNOPSIS
 
@@ -107,11 +190,12 @@ version 0.001003
 
   $array->push(5);
 
-  $array->grep(sub { $_ > 2 }); # (3, 5);
+  $array->grep(sub { $_ > 2 })->map(sub { $_ ** 2 })->elements; # (3, 5);
 
 =head1 DESCRIPTION
 
-  This class provides a wrapper and methods for interacting with a hash.
+This class provides a wrapper and methods for interacting with an array.
+All methods that return a list do so via a Data::Perl::Collection::Array object.
 
 =head1 PROVIDED METHODS
 
@@ -126,8 +210,7 @@ in values, and returns it.
 
 Returns the number of elements in the array.
 
-  $stuff = Stuff->new;
-  $stuff->options( [ "foo", "bar", "baz", "boo" ] );
+  $stuff = Data::Perl::Collection::Array->new(qw/foo bar baz boo/);
 
   print $stuff->count; # prints 4
 
@@ -191,8 +274,9 @@ This method accepts any number of arguments.
 =item * B<splice($offset, $length, @values)>
 
 Just like Perl's builtin C<splice>. In scalar context, this returns the last
-element removed, or C<undef> if no elements were removed. In list context,
-this returns all the elements removed from the array.
+element removed, or C<undef> if no elements were removed. In list context, this
+returns all the elements removed from the array, wrapped in a Collection::Array
+object.
 
 This method requires at least one argument.
 
@@ -222,7 +306,7 @@ This method requires a single argument.
 
 This method returns every element matching a given criteria, just like Perl's
 core C<grep> function. This method requires a subroutine which implements the
-matching logic.
+matching logic. The returned list is provided as a Collection::Array object.
 
   my @found = $stuff->grep( sub {/^b/} );
   print "@found\n";    # prints "bar baz boo"
@@ -231,9 +315,10 @@ This method requires a single argument.
 
 =item * B<map( sub { ... } )>
 
-This method transforms every element in the array and returns a new array,
-just like Perl's core C<map> function. This method requires a subroutine which
-implements the transformation.
+This method transforms every element in the array and returns a new array, just
+like Perl's core C<map> function. This method requires a subroutine which
+implements the transformation. The returned list is provided as
+a Collection::Array object.
 
   my @mod_options = $stuff->map( sub { $_ . "-tag" } );
   print "@mod_options\n";    # prints "foo-tag bar-tag baz-tag boo-tag"
@@ -260,7 +345,8 @@ Returns the elements of the array in sorted order.
 
 You can provide an optional subroutine reference to sort with (as you can with
 Perl's core C<sort> function). However, instead of using C<$a> and C<$b> in
-this subroutine, you will need to use C<$_[0]> and C<$_[1]>.
+this subroutine, you will need to use C<$_[0]> and C<$_[1]>. The returned list
+is provided as a Collection::Array object.
 
   # ascending ASCIIbetical
   my @sorted = $stuff->sort();
@@ -279,23 +365,29 @@ Sorts the array I<in place>, modifying the value of the attribute.
 
 You can provide an optional subroutine reference to sort with (as you can with
 Perl's core C<sort> function). However, instead of using C<$a> and C<$b>, you
-will need to use C<$_[0]> and C<$_[1]> instead.
-
-This method does not define a return value.
+will need to use C<$_[0]> and C<$_[1]> instead. The returned list is provided
+as a Collection::Array object.
 
 This method accepts a single argument.
+
+=item * B<reverse>
+
+Returns the elements of the array in reversed order. The returned list is
+provided as a Collection::Array object.
+
+This method does not accept any arguments.
 
 =item * B<shuffle>
 
 Returns the elements of the array in random order, like C<shuffle> from
-L<List::Util>.
+L<List::Util>. The returned list is provided as a Collection::Array object.
 
 This method does not accept any arguments.
 
 =item * B<uniq>
 
 Returns the array with all duplicate elements removed, like C<uniq> from
-L<List::MoreUtils>.
+L<List::MoreUtils>. The returned list is provided as a Collection::Array object.
 
 This method does not accept any arguments.
 
@@ -309,6 +401,13 @@ like Perl's core C<join> function.
 
 This method requires a single argument.
 
+=item * B<print($handle, $str)>
+
+Prints the output of join($str) to $handle. $handle defaults to STDOUT, and
+join $str defaults to join()'s default of ','.
+
+  $joined = $stuff->print(*STDERR, ';'); # prints foo;bar;baz to STDERR
+
 =item * B<set($index, $value)>
 
 Given an index and a value, sets the specified array element's value.
@@ -321,7 +420,9 @@ This method requires two arguments.
 
 Removes the element at the given index from the array.
 
-This method returns the deleted value. Note that if no value exists, it will
+This method returns the deleted value, either as an array or scalar as
+dependent on splice context semantics. Note that if no value exists, it will
+
 return C<undef>.
 
 This method requires one argument.
@@ -330,7 +431,8 @@ This method requires one argument.
 
 Inserts a new element into the array at the given index.
 
-This method returns the new value at C<$index>.
+This method returns the new value at C<$index>, either as an array or scalar as
+dependent on splice context semantics.
 
 This method requires two arguments.
 
@@ -372,6 +474,17 @@ is a reference to a new array with the same elements.  It is I<shallow>
 because any elements that were references in the original will be the I<same>
 references in the clone.
 
+=item * B<flatten>
+
+This method returns a list of elements in the array.  This method is an alias
+to the I<elements> method.
+
+=item * B<flatten_deep($level)>
+
+This method returns a flattened list of elements in the array. Will flatten
+arrays contained within the root array recursively - depth is controlled by the
+optional $level parameter.
+
 =back
 
 =head1 SEE ALSO
@@ -396,6 +509,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod

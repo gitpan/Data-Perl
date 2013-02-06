@@ -1,6 +1,6 @@
 package Data::Perl;
 {
-  $Data::Perl::VERSION = '0.001003';
+  $Data::Perl::VERSION = '0.001004';
 }
 
 # ABSTRACT: Base classes wrapping fundamental Perl data types.
@@ -37,6 +37,8 @@ sub counter { Data::Perl::Counter->new(shift||0) }
 
 1;
 
+
+
 =pod
 
 =head1 NAME
@@ -45,7 +47,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 =head1 VERSION
 
-version 0.001003
+version 0.001004
 
 =head1 SYNOPSIS
 
@@ -84,8 +86,7 @@ version 0.001003
 Data::Perl is a collection of classes that wrap fundamental data types that
 exist in Perl. These classes and methods as they exist today are an attempt to
 mirror functionality provided by Moose's Native Traits. One important thing to
-note is all classes currently do no validation on constructor input. B<This may
-change in the future>.
+note is all classes currently do no validation on constructor input.
 
 Data::Perl is a container class for the following classes:
 
@@ -106,6 +107,13 @@ Data::Perl is a container class for the following classes:
 =item * L<Data::Perl::Code>
 
 =back
+
+=head1 HERE BE DRAGONS
+
+The API provided by these modules is as of now considered alpha and undecided.
+Although it is safe to assume the api mirroring Moose native traits will not be
+changed/removed, If you are writing code that you will not touch again for
+years, do not use this till this warning is removed.
 
 =head1 PROVIDED FUNCTIONS
 
@@ -168,6 +176,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod

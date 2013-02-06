@@ -1,6 +1,6 @@
 package Data::Perl::Code;
 {
-  $Data::Perl::Code::VERSION = '0.001003';
+  $Data::Perl::Code::VERSION = '0.001004';
 }
 
 # ABSTRACT: Wrapping class for Perl coderefs.
@@ -16,6 +16,7 @@ sub execute_method { die 'This remains unimplemented for now.' }
 
 1;
 
+
 =pod
 
 =head1 NAME
@@ -24,7 +25,7 @@ Data::Perl::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.001003
+version 0.001004
 
 =head1 SYNOPSIS
 
@@ -36,7 +37,7 @@ version 0.001003
 
 =head1 DESCRIPTION
 
-  This class provides a wrapper and methods for interacting with Perl coderefs.
+This class provides a wrapper and methods for interacting with Perl coderefs.
 
 =head1 PROVIDED METHODS
 
@@ -81,6 +82,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod

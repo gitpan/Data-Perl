@@ -11,7 +11,13 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Base classes wrapping fundamental Perl data types.",
   "AUTHOR" => "Matthew Phillips <mattp\@cpan.org>",
-  "BUILD_REQUIRES" => {},
+  "BUILD_REQUIRES" => {
+    "List::MoreUtils" => 0,
+    "List::Util" => 0,
+    "Scalar::Util" => 0,
+    "Test::Output" => 0,
+    "strictures" => 0
+  },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -19,13 +25,8 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Data::Perl",
-  "PREREQ_PM" => {
-    "List::MoreUtils" => 0,
-    "List::Util" => 0,
-    "Scalar::Util" => 0,
-    "strictures" => 0
-  },
-  "VERSION" => "0.001003",
+  "PREREQ_PM" => {},
+  "VERSION" => "0.001004",
   "test" => {
     "TESTS" => "t/*.t t/collection/*.t"
   }

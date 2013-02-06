@@ -1,17 +1,21 @@
 package Data::Perl::Collection::Hash;
 {
-  $Data::Perl::Collection::Hash::VERSION = '0.001003';
+  $Data::Perl::Collection::Hash::VERSION = '0.001004';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in hash structure.
 
-use Scalar::Util qw/blessed/;
-
 use strictures 1;
+
+use Scalar::Util qw/blessed/;
+use Data::Perl::Collection::Array;
 
 sub new { my $cl = shift; bless({ @_ }, $cl) }
 
-sub get { my $self = shift; @_ > 1 ? @{$self}{@_} : $self->{$_[0]} }
+sub get {
+  my $self = shift;
+  @_ > 1 ? Data::Perl::Collection::Array->new(@{$self}{@_}) : $self->{$_[0]}
+}
 
 sub set {
   my $self = shift;
@@ -20,28 +24,37 @@ sub set {
 
   @{$self}{@_[@keys_idx]} = @_[@values_idx];
 
-  return wantarray ? @{$self}{@_[@keys_idx]} : $self->{$_[$keys_idx[0]]};
+  if (wantarray) {
+    return Data::Perl::Collection::Array->new(@{$self}{@_[@keys_idx]});
+  }
+  else {
+    return $self->{$_[$keys_idx[0]]};
+  }
 }
 
-sub delete { delete @{$_[0]}{@_} }
+sub delete {
+  my $self = shift;
+  my @deleted = CORE::delete @{$self}{@_};
+  wantarray ? Data::Perl::Collection::Array->new(@deleted) : $deleted[-1];
+}
 
-sub keys { keys %{$_[0]} }
+sub keys { Data::Perl::Collection::Array->new(keys %{$_[0]}) }
 
-sub exists { exists $_[0]->{$_[1]} }
+sub exists { CORE::exists $_[0]->{$_[1]} }
 
-sub defined { defined $_[0]->{$_[1]} }
+sub defined { CORE::defined $_[0]->{$_[1]} }
 
-sub values { values %{$_[0]} }
+sub values { CORE::values %{$_[0]} }
 
-sub kv { map { [ $_, $_[0]->{$_} ] } CORE::keys %{$_[0]} }
+sub kv { Data::Perl::Collection::Array->new(CORE::map { [ $_, $_[0]->{$_} ] } CORE::keys %{$_[0]}) }
 
-sub elements { map { $_, $_[0]->{$_} } CORE::keys %{$_[0]} }
+sub elements { Data::Perl::Collection::Array->new(CORE::map { $_, $_[0]->{$_} } CORE::keys %{$_[0]}) }
 
-sub clear { %{$_[0]} = () }
+sub clear { ref($_[0])->new(%{$_[0]} = ()) }
 
-sub count { scalar CORE::keys %{$_[0]} }
+sub count { CORE::scalar CORE::keys %{$_[0]} }
 
-sub is_empty { scalar CORE::keys %{$_[0]} ? 0 : 1 }
+sub is_empty { CORE::scalar CORE::keys %{$_[0]} ? 0 : 1 }
 
 sub accessor {
   if (@_ == 2) {
@@ -56,6 +69,8 @@ sub shallow_clone { blessed($_[0]) ? bless({%{$_[0]}}, ref $_[0]) : {%{$_[0]}} }
 
 1;
 
+
+
 =pod
 
 =head1 NAME
@@ -64,7 +79,7 @@ Data::Perl::Collection::Hash - Wrapping class for Perl's built in hash structure
 
 =head1 VERSION
 
-version 0.001003
+version 0.001004
 
 =head1 SYNOPSIS
 
@@ -78,7 +93,8 @@ version 0.001003
 
 =head1 DESCRIPTION
 
-  This class provides a wrapper and methods for interacting with a hash.
+This class provides a wrapper and methods for interacting with a hash.
+All methods that return a list do so via a Data::Perl::Collection::Array object.
 
 =head1 PROVIDED METHODS
 
@@ -215,6 +231,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod

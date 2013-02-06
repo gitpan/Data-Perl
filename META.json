@@ -4,7 +4,7 @@
       "Matthew Phillips <mattp@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300029, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300030, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -26,11 +26,12 @@
             "Test::Pod::Coverage" : "1.08"
          }
       },
-      "runtime" : {
+      "test" : {
          "requires" : {
             "List::MoreUtils" : "0",
             "List::Util" : "0",
             "Scalar::Util" : "0",
+            "Test::Output" : "0",
             "strictures" : "0"
          }
       }
@@ -43,6 +44,6 @@
          "web" : "https://github.com/mattp-/Data-Perl"
       }
    },
-   "version" : "0.001003"
+   "version" : "0.001004"
 }
 

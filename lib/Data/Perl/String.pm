@@ -1,13 +1,13 @@
 package Data::Perl::String;
 {
-  $Data::Perl::String::VERSION = '0.001003';
+  $Data::Perl::String::VERSION = '0.001004';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar strings.
 
 use strictures 1;
 
-sub new { my $cl = shift; bless(\$_[0], $cl) }
+sub new { bless \(my $s = $_[1]), $_[0] }
 
 sub inc { ${$_[0]}++ }
 
@@ -36,9 +36,20 @@ sub clear { ${$_[0]} = '' }
 
 sub length { CORE::length ${$_[0]} }
 
-sub substr { ... }
+sub substr {
+  if (@_ >= 4) {
+    substr ${$_[0]}, $_[1], $_[2], $_[3];
+  }
+  elsif (@_ == 3) {
+    substr ${$_[0]}, $_[1], $_[2];
+  }
+  else {
+    substr ${$_[0]}, $_[1];
+  }
+}
 
 1;
+
 
 =pod
 
@@ -48,7 +59,7 @@ Data::Perl::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.001003
+version 0.001004
 
 =head1 SYNOPSIS
 
@@ -162,6 +173,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod

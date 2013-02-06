@@ -1,13 +1,13 @@
 package Data::Perl::Counter;
 {
-  $Data::Perl::Counter::VERSION = '0.001003';
+  $Data::Perl::Counter::VERSION = '0.001004';
 }
 
 # ABSTRACT: Wrapping class for a simple numeric counter.
 
 use strictures 1;
 
-sub new { my $cl = shift; bless \$_[0], $cl }
+sub new { bless \(my $n = $_[1]), $_[0] }
 
 sub inc { ${$_[0]} += ($_[1] ? $_[1] : 1) }
 
@@ -17,6 +17,7 @@ sub reset { ${$_[0]} = 0 }
 
 1;
 
+
 =pod
 
 =head1 NAME
@@ -25,7 +26,7 @@ Data::Perl::Counter - Wrapping class for a simple numeric counter.
 
 =head1 VERSION
 
-version 0.001003
+version 0.001004
 
 =head1 SYNOPSIS
 
@@ -39,7 +40,7 @@ version 0.001003
 
 =head1 DESCRIPTION
 
-  This class provides a wrapper and methods for a simple numeric counter.
+This class provides a wrapper and methods for a simple numeric counter.
 
 =head1 PROVIDED METHODS
 
@@ -103,6 +104,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod
