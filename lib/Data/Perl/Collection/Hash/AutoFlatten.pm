@@ -1,6 +1,6 @@
 package Data::Perl::Collection::Hash::AutoFlatten;
 {
-  $Data::Perl::Collection::Hash::AutoFlatten::VERSION = '0.001004';
+  $Data::Perl::Collection::Hash::AutoFlatten::VERSION = '0.001005';
 }
 
 # ABSTRACT: Like Collection::Hash, but flattened.
@@ -44,7 +44,7 @@ Data::Perl::Collection::Hash::AutoFlatten - Like Collection::Hash, but flattened
 
 =head1 VERSION
 
-version 0.001004
+version 0.001005
 
 =head1 SYNOPSIS
 

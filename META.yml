@@ -19,4 +19,4 @@ meta-spec:
 name: Data-Perl
 resources:
   repository: git://github.com/mattp-/Data-Perl.git
-version: 0.001004
+version: 0.001005

@@ -1,6 +1,6 @@
 package Data::Perl::Bool;
 {
-  $Data::Perl::Bool::VERSION = '0.001004';
+  $Data::Perl::Bool::VERSION = '0.001005';
 }
 
 # ABSTRACT: Wrapping class for boolean values.
@@ -28,7 +28,7 @@ Data::Perl::Bool - Wrapping class for boolean values.
 
 =head1 VERSION
 
-version 0.001004
+version 0.001005
 
 =head1 SYNOPSIS
 
