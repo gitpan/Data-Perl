@@ -3,8 +3,10 @@ abstract: 'Base classes wrapping fundamental Perl data types.'
 author:
   - 'Matthew Phillips <mattp@cpan.org>'
 build_requires:
+  Class::Method::Modifiers: 0
   List::MoreUtils: 0
   List::Util: 0
+  Role::Tiny: 0
   Scalar::Util: 0
   Test::Output: 0
   strictures: 0
@@ -19,4 +21,4 @@ meta-spec:
 name: Data-Perl
 resources:
   repository: git://github.com/mattp-/Data-Perl.git
-version: 0.001005
+version: 0.002000

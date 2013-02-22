@@ -28,8 +28,10 @@
       },
       "test" : {
          "requires" : {
+            "Class::Method::Modifiers" : "0",
             "List::MoreUtils" : "0",
             "List::Util" : "0",
+            "Role::Tiny" : "0",
             "Scalar::Util" : "0",
             "Test::Output" : "0",
             "strictures" : "0"
@@ -44,6 +46,6 @@
          "web" : "https://github.com/mattp-/Data-Perl"
       }
    },
-   "version" : "0.001005"
+   "version" : "0.002000"
 }
 

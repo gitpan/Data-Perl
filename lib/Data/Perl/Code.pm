@@ -1,20 +1,18 @@
 package Data::Perl::Code;
 {
-  $Data::Perl::Code::VERSION = '0.001005';
+  $Data::Perl::Code::VERSION = '0.002000';
 }
 
 # ABSTRACT: Wrapping class for Perl coderefs.
 
 use strictures 1;
 
-sub new { my $cl = shift; bless $_[0], $cl }
+use Role::Tiny::With;
 
-sub execute { $_[0]->(@_[1..$#_]) }
-
-#sub execute_method { $_[0]->($_[0], @_[1..$#_]) }
-sub execute_method { die 'This remains unimplemented for now.' }
+with 'Data::Perl::Role::Code';
 
 1;
+
 
 
 =pod
@@ -25,7 +23,7 @@ Data::Perl::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.001005
+version 0.002000
 
 =head1 SYNOPSIS
 
@@ -37,38 +35,8 @@ version 0.001005
 
 =head1 DESCRIPTION
 
-This class provides a wrapper and methods for interacting with Perl coderefs.
-
-=head1 PROVIDED METHODS
-
-=over 4
-
-=item B<new($coderef)>
-
-Constructs a new Data::Perl::Code object, initialized to $coderef as passed in,
-and returns it.
-
-=item * B<execute(@args)>
-
-Calls the coderef with the given args.
-
-=item * B<execute_method(@args)>
-
-Calls the coderef with the the instance as invocant and given args. B<This is
-currently disabled and triggers a die due to implementation details yet to be
-resolved.>
-
-=back
-
-=head1 SEE ALSO
-
-=over 4
-
-=item * L<Data::Perl>
-
-=item * L<MooX::HandlesVia>
-
-=back
+This class is a simple consumer of the L<Data::Perl::Role::Code> role, which
+provides all functionality. You probably want to look there instead.
 
 =head1 AUTHOR
 

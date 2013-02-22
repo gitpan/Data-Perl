@@ -1,54 +1,18 @@
 package Data::Perl::String;
 {
-  $Data::Perl::String::VERSION = '0.001005';
+  $Data::Perl::String::VERSION = '0.002000';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar strings.
 
 use strictures 1;
 
-sub new { bless \(my $s = $_[1]), $_[0] }
+use Role::Tiny::With;
 
-sub inc { ${$_[0]}++ }
-
-sub append { ${$_[0]} = ${$_[0]} . $_[1] }
-
-sub prepend { ${$_[0]} = $_[1] . ${$_[0]} }
-
-sub replace {
-  if (ref($_[2]) eq 'CODE') {
-    ${$_[0]} =~ s/$_[1]/$_[2]->()/e;
-  }
-  else {
-    ${$_[0]} =~ s/$_[1]/$_[2]/;
-  }
-}
-
-sub match {
-  ${$_[0]} =~ /$_[1]/;
-}
-
-sub chop { CORE::chop ${$_[0]} }
-
-sub chomp { CORE::chomp ${$_[0]} }
-
-sub clear { ${$_[0]} = '' }
-
-sub length { CORE::length ${$_[0]} }
-
-sub substr {
-  if (@_ >= 4) {
-    substr ${$_[0]}, $_[1], $_[2], $_[3];
-  }
-  elsif (@_ == 3) {
-    substr ${$_[0]}, $_[1], $_[2];
-  }
-  else {
-    substr ${$_[0]}, $_[1];
-  }
-}
+with 'Data::Perl::Role::String';
 
 1;
+
 
 
 =pod
@@ -59,7 +23,7 @@ Data::Perl::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.001005
+version 0.002000
 
 =head1 SYNOPSIS
 
@@ -71,95 +35,8 @@ version 0.001005
 
 =head1 DESCRIPTION
 
-  This class provides a wrapper and methods for interacting with scalar strings.
-
-=head1 PROVIDED METHODS
-
-=over 4
-
-=item B<new($value)>
-
-Constructs a new Data::Perl::String object, optionally initialized to $value if
-passed in, and returns it.
-
-=item * B<inc>
-
-Increments the value stored in this slot using the magical string autoincrement
-operator. Note that Perl doesn't provide analogous behavior in C<-->, so
-C<dec> is not available. This method returns the new value.
-
-This method does not accept any arguments.
-
-=item * B<append($string)>
-
-Appends to the string, like C<.=>, and returns the new value.
-
-This method requires a single argument.
-
-=item * B<prepend($string)>
-
-Prepends to the string and returns the new value.
-
-This method requires a single argument.
-
-=item * B<replace($pattern, $replacement)>
-
-Performs a regexp substitution (L<perlop/s>). There is no way to provide the
-C<g> flag, but code references will be accepted for the replacement, causing
-the regex to be modified with a single C<e>. C</smxi> can be applied using the
-C<qr> operator. This method returns the new value.
-
-This method requires two arguments.
-
-=item * B<match($pattern)>
-
-Runs the regex against the string and returns the matching value(s).
-
-This method requires a single argument.
-
-=item * B<chop>
-
-Just like L<perlfunc/chop>. This method returns the chopped character.
-
-This method does not accept any arguments.
-
-=item * B<chomp>
-
-Just like L<perlfunc/chomp>. This method returns the number of characters
-removed.
-
-This method does not accept any arguments.
-
-=item * B<clear>
-
-Sets the string to the empty string (not the value passed to C<default>).
-
-This method does not have a defined return value.
-
-This method does not accept any arguments.
-
-=item * B<length>
-
-Just like L<perlfunc/length>, returns the length of the string.
-
-=item * B<substr>
-
-This acts just like L<perlfunc/substr>. When called as a writer, it returns
-the substring that was replaced, just like the Perl builtin.
-
-This method requires at least one argument, and accepts no more than three.
-
-=back
-
-=head1 SEE ALSO
-
-=over 4
-
-=item * L<Data::Perl>
-
-=item * L<MooX::HandlesVia>
-
-=back
+This class is a simple consumer of the L<Data::Perl::Role::String> role, which
+provides all functionality. You probably want to look there instead.
 
 =head1 AUTHOR
 
