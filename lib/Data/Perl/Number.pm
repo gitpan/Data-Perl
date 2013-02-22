@@ -1,6 +1,6 @@
 package Data::Perl::Number;
 {
-  $Data::Perl::Number::VERSION = '0.002000';
+  $Data::Perl::Number::VERSION = '0.002001';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar numbers.
@@ -22,7 +22,7 @@ Data::Perl::Number - Wrapping class for Perl scalar numbers.
 
 =head1 VERSION
 
-version 0.002000
+version 0.002001
 
 =head1 SYNOPSIS
 

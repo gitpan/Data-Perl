@@ -1,6 +1,6 @@
 package Data::Perl::Role::Counter;
 {
-  $Data::Perl::Role::Counter::VERSION = '0.002000';
+  $Data::Perl::Role::Counter::VERSION = '0.002001';
 }
 
 # ABSTRACT: Wrapping class for a simple numeric counter.
@@ -28,7 +28,7 @@ Data::Perl::Role::Counter - Wrapping class for a simple numeric counter.
 
 =head1 VERSION
 
-version 0.002000
+version 0.002001
 
 =head1 SYNOPSIS
 

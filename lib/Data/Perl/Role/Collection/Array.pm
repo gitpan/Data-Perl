@@ -1,6 +1,6 @@
 package Data::Perl::Role::Collection::Array;
 {
-  $Data::Perl::Role::Collection::Array::VERSION = '0.002000';
+  $Data::Perl::Role::Collection::Array::VERSION = '0.002001';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in array structure.
@@ -201,7 +201,7 @@ Data::Perl::Role::Collection::Array - Wrapping class for Perl's built in array s
 
 =head1 VERSION
 
-version 0.002000
+version 0.002001
 
 =head1 SYNOPSIS
 

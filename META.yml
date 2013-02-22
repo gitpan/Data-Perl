@@ -8,6 +8,7 @@ build_requires:
   List::Util: 0
   Role::Tiny: 0
   Scalar::Util: 0
+  Test::Fatal: 0
   Test::Output: 0
   strictures: 0
 configure_requires:
@@ -21,4 +22,4 @@ meta-spec:
 name: Data-Perl
 resources:
   repository: git://github.com/mattp-/Data-Perl.git
-version: 0.002000
+version: 0.002001

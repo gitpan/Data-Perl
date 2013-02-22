@@ -17,6 +17,7 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Role::Tiny" => 0,
     "Scalar::Util" => 0,
+    "Test::Fatal" => 0,
     "Test::Output" => 0,
     "strictures" => 0
   },
@@ -28,7 +29,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Data::Perl",
   "PREREQ_PM" => {},
-  "VERSION" => "0.002000",
+  "VERSION" => "0.002001",
   "test" => {
     "TESTS" => "t/*.t t/collection/*.t"
   }
