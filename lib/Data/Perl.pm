@@ -1,6 +1,6 @@
 package Data::Perl;
 {
-  $Data::Perl::VERSION = '0.002001';
+  $Data::Perl::VERSION = '0.002002';
 }
 
 # ABSTRACT: Base classes wrapping fundamental Perl data types.
@@ -47,7 +47,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 =head1 VERSION
 
-version 0.002001
+version 0.002002
 
 =head1 SYNOPSIS
 

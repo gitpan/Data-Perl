@@ -1,6 +1,6 @@
 package Data::Perl::Role::Collection::Hash;
 {
-  $Data::Perl::Role::Collection::Hash::VERSION = '0.002001';
+  $Data::Perl::Role::Collection::Hash::VERSION = '0.002002';
 }
 
 # ABSTRACT: Wrapping class for Perl's built in hash structure.
@@ -119,7 +119,7 @@ Data::Perl::Role::Collection::Hash - Wrapping class for Perl's built in hash str
 
 =head1 VERSION
 
-version 0.002001
+version 0.002002
 
 =head1 SYNOPSIS
 
