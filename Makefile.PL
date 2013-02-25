@@ -12,15 +12,8 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Base classes wrapping fundamental Perl data types.",
   "AUTHOR" => "Matthew Phillips <mattp\@cpan.org>",
   "BUILD_REQUIRES" => {
-    "Class::Method::Modifiers" => 0,
-    "List::MoreUtils" => 0,
-    "List::Util" => 0,
-    "Module::Runtime" => 0,
-    "Role::Tiny" => 0,
-    "Scalar::Util" => 0,
     "Test::Fatal" => 0,
-    "Test::Output" => 0,
-    "strictures" => 0
+    "Test::Output" => 0
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -29,8 +22,16 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Data::Perl",
-  "PREREQ_PM" => {},
-  "VERSION" => "0.002002",
+  "PREREQ_PM" => {
+    "Class::Method::Modifiers" => 0,
+    "List::MoreUtils" => 0,
+    "List::Util" => 0,
+    "Module::Runtime" => 0,
+    "Role::Tiny" => 0,
+    "Scalar::Util" => 0,
+    "strictures" => 0
+  },
+  "VERSION" => "0.002003",
   "test" => {
     "TESTS" => "t/*.t t/collection/*.t"
   }

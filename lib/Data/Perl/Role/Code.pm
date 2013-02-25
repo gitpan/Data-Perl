@@ -1,6 +1,6 @@
 package Data::Perl::Role::Code;
 {
-  $Data::Perl::Role::Code::VERSION = '0.002002';
+  $Data::Perl::Role::Code::VERSION = '0.002003';
 }
 
 # ABSTRACT: Wrapping class for Perl coderefs.
@@ -27,7 +27,7 @@ Data::Perl::Role::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.002002
+version 0.002003
 
 =head1 SYNOPSIS
 

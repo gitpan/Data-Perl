@@ -1,6 +1,6 @@
 package Data::Perl::String;
 {
-  $Data::Perl::String::VERSION = '0.002002';
+  $Data::Perl::String::VERSION = '0.002003';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar strings.
@@ -23,7 +23,7 @@ Data::Perl::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.002002
+version 0.002003
 
 =head1 SYNOPSIS
 
