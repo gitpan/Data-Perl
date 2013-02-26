@@ -1,6 +1,6 @@
 package Data::Perl::Counter;
 {
-  $Data::Perl::Counter::VERSION = '0.002003';
+  $Data::Perl::Counter::VERSION = '0.002004';
 }
 
 # ABSTRACT: Wrapping class for a simple numeric counter.
@@ -22,7 +22,7 @@ Data::Perl::Counter - Wrapping class for a simple numeric counter.
 
 =head1 VERSION
 
-version 0.002003
+version 0.002004
 
 =head1 SYNOPSIS
 

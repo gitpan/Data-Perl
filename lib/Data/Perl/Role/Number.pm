@@ -1,6 +1,6 @@
 package Data::Perl::Role::Number;
 {
-  $Data::Perl::Role::Number::VERSION = '0.002003';
+  $Data::Perl::Role::Number::VERSION = '0.002004';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar numbers.
@@ -35,7 +35,7 @@ Data::Perl::Role::Number - Wrapping class for Perl scalar numbers.
 
 =head1 VERSION
 
-version 0.002003
+version 0.002004
 
 =head1 SYNOPSIS
 

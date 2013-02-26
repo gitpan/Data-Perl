@@ -4,7 +4,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 # VERSION
 
-version 0.002003
+version 0.002004
 
 # SYNOPSIS
 
@@ -55,12 +55,11 @@ Data::Perl is a container class for the following classes:
 - [Data::Perl::Bool](http://search.cpan.org/perldoc?Data::Perl::Bool)
 - [Data::Perl::Code](http://search.cpan.org/perldoc?Data::Perl::Code)
 
-# HERE BE DRAGONS
+# ALPHA API
 
 The API provided by these modules is as of now considered alpha and undecided.
-Although it is safe to assume the api mirroring Moose native traits will not be
-changed/removed, If you are writing code that you will not touch again for
-years, do not use this till this warning is removed.
+The API __WILL__ change.  If you are writing code that you will not touch again
+for years, do not use this until this warning is removed.
 
 # PROVIDED FUNCTIONS
 

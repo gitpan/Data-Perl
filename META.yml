@@ -24,4 +24,4 @@ requires:
   strictures: 0
 resources:
   repository: git://github.com/mattp-/Data-Perl.git
-version: 0.002003
+version: 0.002004

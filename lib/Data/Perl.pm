@@ -1,6 +1,6 @@
 package Data::Perl;
 {
-  $Data::Perl::VERSION = '0.002003';
+  $Data::Perl::VERSION = '0.002004';
 }
 
 # ABSTRACT: Base classes wrapping fundamental Perl data types.
@@ -47,7 +47,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 =head1 VERSION
 
-version 0.002003
+version 0.002004
 
 =head1 SYNOPSIS
 
@@ -108,12 +108,11 @@ Data::Perl is a container class for the following classes:
 
 =back
 
-=head1 HERE BE DRAGONS
+=head1 ALPHA API
 
 The API provided by these modules is as of now considered alpha and undecided.
-Although it is safe to assume the api mirroring Moose native traits will not be
-changed/removed, If you are writing code that you will not touch again for
-years, do not use this till this warning is removed.
+The API B<WILL> change.  If you are writing code that you will not touch again
+for years, do not use this until this warning is removed.
 
 =head1 PROVIDED FUNCTIONS
 

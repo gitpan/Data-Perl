@@ -1,6 +1,6 @@
 package Data::Perl::Role::String;
 {
-  $Data::Perl::Role::String::VERSION = '0.002003';
+  $Data::Perl::Role::String::VERSION = '0.002004';
 }
 
 # ABSTRACT: Wrapping class for Perl scalar strings.
@@ -62,7 +62,7 @@ Data::Perl::Role::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.002003
+version 0.002004
 
 =head1 SYNOPSIS
 
@@ -80,7 +80,7 @@ This class provides a wrapper and methods for interacting with scalar strings.
 
 =over 4
 
-=item B<new($value)>
+=item * B<new($value)>
 
 Constructs a new Data::Perl::String object, optionally initialized to $value if
 passed in, and returns it.
