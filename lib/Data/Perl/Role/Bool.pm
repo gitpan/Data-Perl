@@ -1,6 +1,6 @@
 package Data::Perl::Role::Bool;
 {
-  $Data::Perl::Role::Bool::VERSION = '0.002004';
+  $Data::Perl::Role::Bool::VERSION = '0.002005';
 }
 
 # ABSTRACT: Wrapping class for boolean values.
@@ -21,7 +21,6 @@ sub not { !${$_[0]} }
 
 1;
 
-
 =pod
 
 =head1 NAME
@@ -30,7 +29,7 @@ Data::Perl::Role::Bool - Wrapping class for boolean values.
 
 =head1 VERSION
 
-version 0.002004
+version 0.002005
 
 =head1 SYNOPSIS
 
@@ -99,7 +98,6 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 
 __END__
 ==pod

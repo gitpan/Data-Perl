@@ -1,6 +1,6 @@
 package Data::Perl::Role::Code;
 {
-  $Data::Perl::Role::Code::VERSION = '0.002004';
+  $Data::Perl::Role::Code::VERSION = '0.002005';
 }
 
 # ABSTRACT: Wrapping class for Perl coderefs.
@@ -18,7 +18,6 @@ sub execute_method { die 'This remains unimplemented for now.' }
 
 1;
 
-
 =pod
 
 =head1 NAME
@@ -27,7 +26,7 @@ Data::Perl::Role::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.002004
+version 0.002005
 
 =head1 SYNOPSIS
 
@@ -84,7 +83,6 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 
 __END__
 ==pod
