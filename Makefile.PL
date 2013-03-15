@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Base classes wrapping fundamental Perl data types.",
   "AUTHOR" => "Matthew Phillips <mattp\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "Test::Deep" => 0,
     "Test::Fatal" => 0,
     "Test::Output" => 0
   },
@@ -32,7 +33,7 @@ my %WriteMakefileArgs = (
     "parent" => 0,
     "strictures" => 0
   },
-  "VERSION" => "0.002005",
+  "VERSION" => "0.002006",
   "test" => {
     "TESTS" => "t/*.t t/collection/*.t"
   }

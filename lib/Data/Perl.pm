@@ -1,6 +1,6 @@
 package Data::Perl;
 {
-  $Data::Perl::VERSION = '0.002005';
+  $Data::Perl::VERSION = '0.002006';
 }
 
 # ABSTRACT: Base classes wrapping fundamental Perl data types.
@@ -37,6 +37,8 @@ sub counter { Data::Perl::Counter->new(shift||0) }
 
 1;
 
+
+
 =pod
 
 =head1 NAME
@@ -45,7 +47,7 @@ Data::Perl - Base classes wrapping fundamental Perl data types.
 
 =head1 VERSION
 
-version 0.002005
+version 0.002006
 
 =head1 SYNOPSIS
 
@@ -173,6 +175,7 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
 
 __END__
 ==pod
