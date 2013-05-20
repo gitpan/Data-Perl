@@ -1,6 +1,6 @@
 package Data::Perl::Counter;
 {
-  $Data::Perl::Counter::VERSION = '0.002006';
+  $Data::Perl::Counter::VERSION = '0.002007';
 }
 
 # ABSTRACT: Wrapping class for a simple numeric counter.
@@ -13,7 +13,6 @@ with 'Data::Perl::Role::Counter';
 
 1;
 
-
 =pod
 
 =head1 NAME
@@ -22,7 +21,7 @@ Data::Perl::Counter - Wrapping class for a simple numeric counter.
 
 =head1 VERSION
 
-version 0.002006
+version 0.002007
 
 =head1 SYNOPSIS
 
@@ -51,7 +50,6 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 
 __END__
 ==pod

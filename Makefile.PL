@@ -11,11 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Base classes wrapping fundamental Perl data types.",
   "AUTHOR" => "Matthew Phillips <mattp\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Test::Deep" => 0,
-    "Test::Fatal" => 0,
-    "Test::Output" => 0
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -33,12 +29,30 @@ my %WriteMakefileArgs = (
     "parent" => 0,
     "strictures" => 0
   },
-  "VERSION" => "0.002006",
+  "TEST_REQUIRES" => {
+    "Test::Deep" => 0,
+    "Test::Fatal" => 0,
+    "Test::Output" => 0
+  },
+  "VERSION" => "0.002007",
   "test" => {
     "TESTS" => "t/*.t t/collection/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};

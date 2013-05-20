@@ -2,7 +2,7 @@ NAME
     Data::Perl - Base classes wrapping fundamental Perl data types.
 
 VERSION
-    version 0.002006
+    version 0.002007
 
 SYNOPSIS
       use Data::Perl;
