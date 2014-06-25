@@ -1,8 +1,5 @@
 package Data::Perl::String;
-{
-  $Data::Perl::String::VERSION = '0.002007';
-}
-
+$Data::Perl::String::VERSION = '0.002008';
 # ABSTRACT: Wrapping class for Perl scalar strings.
 
 use strictures 1;
@@ -15,13 +12,15 @@ with 'Data::Perl::Role::String';
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Data::Perl::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.002007
+version 0.002008
 
 =head1 SYNOPSIS
 
@@ -42,7 +41,7 @@ Matthew Phillips <mattp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Matthew Phillips <mattp@cpan.org>.
+This software is copyright (c) 2014 by Matthew Phillips <mattp@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

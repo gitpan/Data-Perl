@@ -2,7 +2,7 @@ NAME
     Data::Perl - Base classes wrapping fundamental Perl data types.
 
 VERSION
-    version 0.002007
+    version 0.002008
 
 SYNOPSIS
       use Data::Perl;
@@ -114,7 +114,7 @@ AUTHOR
     Matthew Phillips <mattp@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Matthew Phillips
+    This software is copyright (c) 2014 by Matthew Phillips
     <mattp@cpan.org>.
 
     This is free software; you can redistribute it and/or modify it under
