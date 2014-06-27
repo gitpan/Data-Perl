@@ -1,5 +1,5 @@
 package Data::Perl::Role::Bool;
-$Data::Perl::Role::Bool::VERSION = '0.002008';
+$Data::Perl::Role::Bool::VERSION = '0.002009';
 # ABSTRACT: Wrapping class for boolean values.
 
 use strictures 1;
@@ -28,7 +28,7 @@ Data::Perl::Role::Bool - Wrapping class for boolean values.
 
 =head1 VERSION
 
-version 0.002008
+version 0.002009
 
 =head1 SYNOPSIS
 
@@ -55,21 +55,21 @@ None of these methods accept arguments.
 Constructs a new Data::Perl::Collection::Bool object initialized with the passed
 in value, and returns it.
 
-=item * B<set>
+=item B<set>
 
 Sets the value to C<1> and returns C<1>.
 
-=item * B<unset>
+=item B<unset>
 
 Set the value to C<0> and returns C<0>.
 
-=item * B<toggle>
+=item B<toggle>
 
 Toggles the value. If it's true, set to false, and vice versa.
 
 Returns the new value.
 
-=item * B<not>
+=item B<not>
 
 Equivalent of 'not C<$value>'.
 

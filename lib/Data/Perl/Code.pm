@@ -1,5 +1,5 @@
 package Data::Perl::Code;
-$Data::Perl::Code::VERSION = '0.002008';
+$Data::Perl::Code::VERSION = '0.002009';
 # ABSTRACT: Wrapping class for Perl coderefs.
 
 use strictures 1;
@@ -20,7 +20,7 @@ Data::Perl::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.002008
+version 0.002009
 
 =head1 SYNOPSIS
 

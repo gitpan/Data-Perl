@@ -1,5 +1,5 @@
 package Data::Perl::Role::Code;
-$Data::Perl::Role::Code::VERSION = '0.002008';
+$Data::Perl::Role::Code::VERSION = '0.002009';
 # ABSTRACT: Wrapping class for Perl coderefs.
 
 use strictures 1;
@@ -25,7 +25,7 @@ Data::Perl::Role::Code - Wrapping class for Perl coderefs.
 
 =head1 VERSION
 
-version 0.002008
+version 0.002009
 
 =head1 SYNOPSIS
 
@@ -48,11 +48,11 @@ This class provides a wrapper and methods for interacting with Perl coderefs.
 Constructs a new Data::Perl::Code object, initialized to $coderef as passed in,
 and returns it.
 
-=item * B<execute(@args)>
+=item B<execute(@args)>
 
 Calls the coderef with the given args.
 
-=item * B<execute_method(@args)>
+=item B<execute_method(@args)>
 
 Calls the coderef with the the instance as invocant and given args. B<This is
 currently disabled and triggers a die due to implementation details yet to be

@@ -1,5 +1,5 @@
   package Data::Perl::Collection::Hash;
-$Data::Perl::Collection::Hash::VERSION = '0.002008';
+$Data::Perl::Collection::Hash::VERSION = '0.002009';
 # ABSTRACT: Wrapping class for Perl's built in hash structure.
 
 use strictures 1;
@@ -20,7 +20,7 @@ Data::Perl::Collection::Hash - Wrapping class for Perl's built in hash structure
 
 =head1 VERSION
 
-version 0.002008
+version 0.002009
 
 =head1 SYNOPSIS
 

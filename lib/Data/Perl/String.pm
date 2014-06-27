@@ -1,5 +1,5 @@
 package Data::Perl::String;
-$Data::Perl::String::VERSION = '0.002008';
+$Data::Perl::String::VERSION = '0.002009';
 # ABSTRACT: Wrapping class for Perl scalar strings.
 
 use strictures 1;
@@ -20,7 +20,7 @@ Data::Perl::String - Wrapping class for Perl scalar strings.
 
 =head1 VERSION
 
-version 0.002008
+version 0.002009
 
 =head1 SYNOPSIS
 
